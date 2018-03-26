@@ -18,12 +18,12 @@ invalid_y = [0, 0, 0]
 lower_b1 = -206732.6060606
 upper_b1 = 306.94441413099815
 
-def test_correlation_lower_bound():
+def test_regression_b1_lower_bound():
   assert test_common.isclose(regression_b1(lower_x, lower_y), lower_b1), "Lower regression (b1) bound test"
 
-def test_correlation_upper_bound():
+def test_regression_b1_upper_bound():
   assert test_common.isclose(regression_b1(upper_x, upper_y), upper_b1), "Upper regression (b1) bound test"
 
-def test_correlation_invalid():
+def test_regression_b1_invalid():
   with pytest.raises(TypeError, message="Invalid regression (b1) test"):
     regression_b1(invalid_x, invalid_y)
