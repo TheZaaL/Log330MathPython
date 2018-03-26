@@ -72,7 +72,10 @@ def regression_b1(list_x, list_y):
 
   return dividend / divisor
 
-def regression_b0 (list_x, list_y) :
-  regression_y = regression_b1(list_x, list_y) * average(list_x)
+def regression_b0 (list_x, list_y, b1):
+  if len(list_x) != len(list_y):
+    raise TypeError("Lists are of different lenghts")
+
+  regression_y = b1 * average(list_x)
 
   return average(list_y) - regression_y
