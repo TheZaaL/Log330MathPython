@@ -1,5 +1,5 @@
 from Code.IOLib import read_file
-from Code.MathLib import average, ecartType, variance, correlation, regression_b1, regression_b0
+from Code.MathLib import average, ecartType, variance, correlation, correlation_text, regression_b1, regression_b0
 
 test_data = read_file("Data/data_ecart_type.csv")
 
@@ -14,6 +14,8 @@ test_data_correlation = read_file("Data/data_cor.csv")
 cor = correlation(test_data_correlation[0], test_data_correlation[1])
 
 print('Correlation : %.8f' % cor)
+
+print(correlation_text(cor))
 
 test_data_regression = read_file("Data/data_regression.csv")
 

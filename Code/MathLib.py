@@ -1,5 +1,13 @@
 from math import sqrt
 
+null_correlation_text = "Null to weak correlation"
+weak_correlation_text = "Weak to medium correlation"
+medium_correlation_text = "Medium to strong correlation"
+strong_correlation_text = "Strong to very strong correlation"
+perfect_correlation_text = "Very strong to perfect correlation"
+error_correlation_text = "Invalid correlation"
+
+
 def average(list):
   return (1 / len(list)) * sum(list)
 
@@ -53,6 +61,25 @@ def correlation(list_x, list_y):
   divisor = sqrt(divisor)
 
   return dividend / divisor
+
+def correlation_text(corr):
+  if (corr < 0.2 and corr > -0.2):
+    return null_correlation_text
+  
+  elif (corr < 0.4 and corr > -0.4):
+    return weak_correlation_text
+  
+  elif (corr < 0.6 and corr > -0.6):
+    return medium_correlation_text
+  
+  elif (corr < 0.8 and corr > -0.8):
+    return strong_correlation_text
+  
+  elif (corr <= 1 and corr >= -1):
+    return perfect_correlation_text
+  
+  else:
+    return error_correlation_text
 
 def regression_b1(list_x, list_y):
   if len(list_x) != len(list_y):
