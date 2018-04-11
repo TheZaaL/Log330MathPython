@@ -106,3 +106,37 @@ def regression_b0 (list_x, list_y, b1):
   regression_y = b1 * average(list_x)
 
   return average(list_y) - regression_y
+
+def ecart_type_paire_donnes(list_x, list_y, b1, b0):
+  n = len(list_x)
+  sum_difference = 0
+
+  for i in range(0, n):
+    diff = list_y[i] - ((b1 * list_x[i]) + b0)
+    sum_difference += diff * diff
+
+  ecart_type = sqrt(sum_difference * (1 / (n - 1)))
+
+  return ecart_type
+
+def intervalle_confiance (list_x, xk, ecart_type):
+  n = len(list_x)
+  t = 1.860 # 90% confidance on 10 entries
+  average_x = average(list_x)
+
+  dividend = (xk - average_x) * (xk - average_x)
+
+  divisor = 0
+  
+  for i in range(0, n):
+    divisor += (list_x[i] - average_x) * (list_x[i] - average_x)
+  
+  root = sqrt(1 + (1/n) + (dividend / divisor))
+
+  return t * ecart_type * root
+
+def limite_superieure(yk, interval):
+  return yk + interval
+
+def limite_inferieure(yk, interval):
+  return yk + interval

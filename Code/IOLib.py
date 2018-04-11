@@ -3,10 +3,9 @@ import csv
 def read_file(file_path):
   data = []
   with open(file_path) as file_data:
-    reader = csv.reader(file_data, delimiter=',')
+    reader = csv.reader(file_data, delimiter=';')
 
-    # Skip first and second lines
-    next(reader)
+    # Skip first line
     next(reader)
 
     # Invert column and rows for better manipulation
